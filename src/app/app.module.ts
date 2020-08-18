@@ -17,6 +17,18 @@ import {AvatarComponent} from '@wizdm/elements/avatar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'
 import { IconModule } from '@wizdm/elements/icon';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDsSW-DHrd_1TKJNdUcbqHRVndYGs1ZpZc",
+  authDomain: "sample-96a3c.firebaseapp.com",
+  databaseURL: "https://sample-96a3c.firebaseio.com",
+  projectId: "sample-96a3c",
+  storageBucket: "sample-96a3c.appspot.com",
+  messagingSenderId: "166957950901",
+  appId: "1:166957950901:web:2b104c0bf9e88cba429bfc",
+  measurementId: "G-MLD802QD8Y"
+};
+
 @NgModule({
   imports:      [   
     BrowserModule, 
