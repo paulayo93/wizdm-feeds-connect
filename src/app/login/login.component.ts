@@ -140,13 +140,35 @@ export class LoginComponent implements OnInit {
         this.signOut();
         break;
 
-        case 'verifyEmail':
-        this.verifyEmail( this.code );
-        break;
-
         default:
         this.switchPage(mode as pageTypes);
       }
     });
+  }
+    private signOut() {
+
+    this.progress = true;
+
+    this.auth.signOut()
+      .then( () => {
+        this.reportSuccess('Signed out', 'signIn');
+      })
+      .catch( error => {
+        // Keep the rror code on failure
+        this.showError(error.code);
+      })
+  }
+
+  private registerNew(email: string, password: string,name: string) {
+
+    this.progress = true;
+
+    // Registering a new user with a email/password
+    this.auth.registerNew(email, password, name )
+      .then( () => this.reportSuccess('Registered as ' + email) )
+      .catch( error => {
+        // Keep the rror code on failure
+        this.showError(error.code);
+      });
   }
 }

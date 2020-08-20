@@ -1,3 +1,23 @@
-<p>
-readme works!
-</p>
+<ng-content *ngIf="segments.length === 0"></ng-content>
+
+<ng-container *ngFor="let segment of segments; trackBy: trackByFn">
+
+  <ng-container [ngSwitch]="segment.type">
+
+    <ng-container *ngSwitchCase="'text'">{{ segment.content }}</ng-container>
+
+    <b *ngSwitchCase="'bold'" [wm-readme]="segment.content" (navigate)="navigate($event)"></b>
+
+    <i *ngSwitchCase="'italic'" [wm-readme]="segment.content" (navigate)="navigate($event)"></i>
+
+    <u *ngSwitchCase="'underline'" [wm-readme]="segment.content" (navigate)="navigate($event)"></u>
+
+    <s *ngSwitchCase="'strikethrough'" [wm-readme]="segment.content" (navigate)="navigate($event)"></s>
+
+    <a *ngSwitchCase="'link'" [href]="segment.url" [wm-readme]="segment.content" (click)="navigate(segment.url)"></a>
+
+    <br *ngSwitchCase="'break'" />
+
+  </ng-container>
+
+</ng-container>
