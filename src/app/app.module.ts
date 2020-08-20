@@ -19,6 +19,9 @@ import { MatIconModule } from '@angular/material/icon';
 import {AvatarComponent} from '@wizdm/elements/avatar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+
 import { IconModule } from '@wizdm/elements/icon';
 import { LoginComponent } from './login/login.component';
 
@@ -45,6 +48,8 @@ export const appname: string = 'wizdm';
     MatIconModule,
     MatCardModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatProgressBarModule,
 
     AnimateModule,
     ElementsModule,
