@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-// firebase import
 
 @NgModule({
   imports: [
@@ -8,4 +7,4 @@ import { CommonModule } from '@angular/common';
   ],
   declarations: []
 })
-export class ConnectModule { }
+export class LoginModule { }

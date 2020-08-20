@@ -7,7 +7,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {ElementsModule} from '@wizdm/elements';
 import {AnimateModule} from '@wizdm/animate';
 import {EmojiSupportModule} from '@wizdm/emoji';
-import {ConnectModule} from '@wizdm/connect';
+
+import { AuthModule } from '@wizdm/connect/auth';
+import { ConnectModule, ConnectConfig } from '@wizdm/connect';
+import { DatabaseModule } from '@wizdm/connect/database';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,8 +20,9 @@ import {AvatarComponent} from '@wizdm/elements/avatar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'
 import { IconModule } from '@wizdm/elements/icon';
+import { LoginComponent } from './login/login.component';
 
-const firebaseConfig = {
+const firebase: ConnectConfig = {
   apiKey: "AIzaSyDsSW-DHrd_1TKJNdUcbqHRVndYGs1ZpZc",
   authDomain: "sample-96a3c.firebaseapp.com",
   databaseURL: "https://sample-96a3c.firebaseio.com",
@@ -26,8 +30,9 @@ const firebaseConfig = {
   storageBucket: "sample-96a3c.appspot.com",
   messagingSenderId: "166957950901",
   appId: "1:166957950901:web:2b104c0bf9e88cba429bfc",
-  measurementId: "G-MLD802QD8Y"
 };
+
+export const appname: string = 'wizdm';
 
 @NgModule({
   imports:      [   
@@ -46,12 +51,15 @@ const firebaseConfig = {
     EmojiSupportModule,
     IconModule,
 
+    ConnectModule.init(firebase, appname),
+    AuthModule, DatabaseModule,
+
     AppRoutingModule
   ],
   
   declarations: [ 
     AppComponent, 
-    AvatarComponent,
+    AvatarComponent, LoginComponent,
 
   ],
 
