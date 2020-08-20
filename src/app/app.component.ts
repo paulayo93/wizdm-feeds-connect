@@ -1,15 +1,5 @@
 import { Component, OnInit, OnDestroy, ViewChild } from "@angular/core";
-
-export interface wmCard {
-  username?: string,
-  moreVert?: string,
-  userImage?: string,
-  avatar?: string,
-  postMsg?: string,
-  postImage? : string,
-  color?: string,
-  created?: string
-}
+import {wmCard} from './feeds/feeds.component';
 
 @Component({
   selector: "body",

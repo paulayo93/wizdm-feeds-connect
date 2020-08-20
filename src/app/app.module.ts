@@ -24,6 +24,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 
 import { IconModule } from '@wizdm/elements/icon';
 import { LoginComponent } from './login/login.component';
+import { FeedsComponent } from './feeds/feeds.component';
 
 const firebase: ConnectConfig = {
   apiKey: "AIzaSyDsSW-DHrd_1TKJNdUcbqHRVndYGs1ZpZc",
@@ -64,7 +65,7 @@ export const appname: string = 'wizdm';
   
   declarations: [ 
     AppComponent, 
-    AvatarComponent, LoginComponent,
+    AvatarComponent, LoginComponent, FeedsComponent,
 
   ],
 

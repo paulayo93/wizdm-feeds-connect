@@ -1,0 +1,38 @@
+
+<ng-container *ngIf="card">
+	<section fxLayout="column" fxLayoutAlign="center center">
+		<mat-card class="wm-card mat-elevation-z24">
+			<mat-card-header>
+				<div mat-card-avatar>
+					<wm-avatar [src]="card.avatar"></wm-avatar>
+				</div>
+				<mat-card-title>{{card.username}}
+					<mat-card-subtitle>
+            <div>59 mins</div>
+            </mat-card-subtitle>
+        </mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+        <div>
+	<p>{{card.postMsg}}</p>
+        </div>
+				<img  mat-card-image [src]="card.postImage" alt="Wizdm Photo">
+		</mat-card-content>
+				<mat-card-actions fxLayout="row" fxLayoutAlign="start end">
+					<button  mat-button>
+            <wm-icon color="primary" [icon]="'fas:fa-thumbs-up'"></wm-icon>
+            Like</button>
+					<button mat-button>
+            <wm-icon color="primary" [icon]="'far:fa-comments'"></wm-icon>
+            Comment</button>
+					<button  mat-button>
+              <wm-icon color="primary" [icon]="'fas:fa-external-link-alt'">like</wm-icon>
+            Share</button>
+
+				</mat-card-actions>
+		</mat-card>
+
+
+	</section>
+
+</ng-container>
