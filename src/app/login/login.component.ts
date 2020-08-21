@@ -44,7 +44,7 @@ let $msgs = {
   styleUrls : ['./login.component.scss'],
   animations: $loginAnimations
 })
-export class LoginComponent implements OnInit, UserExtension {
+export class LoginComponent implements OnInit{
 
   readonly msgs = $msgs;
   public page: pageTypes;
@@ -79,7 +79,7 @@ export class LoginComponent implements OnInit, UserExtension {
 
   ngOnInit() {
 
-    this.auth.extendUser(this);
+    // this.auth.extendUser(this);
 
     // Discrimnate among the login option using the queryParameters
     this.route.queryParamMap.subscribe( (params: ParamMap) => {
@@ -127,27 +127,7 @@ export class LoginComponent implements OnInit, UserExtension {
       this.form.addControl('password', this.password);      
       break;
 
-      case 'forgotPassword':
-      this.form.addControl('email', this.email);
-      break;
-
-      case 'resetPassword':
-      this.form.addControl('newPassword', this.newPassword);
-      break;
-
-      case 'changePassword':
-      this.form.addControl('password', this.password);
-      this.form.addControl('newPassword', this.newPassword);
-      break;
-
-      case 'changeEmail':
-      this.form.addControl('password', this.password);
-      this.form.addControl('newEmail', this.newEmail);
-      break;
-
-      case 'delete':
-      this.form.addControl('password', this.password);      
-      break;
+   
     }
   }
 

@@ -27,6 +27,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list'; 
 import {MatSidenavModule} from '@angular/material/sidenav'; 
 
+
 import { IconModule } from '@wizdm/elements/icon';
 import { LoginComponent } from './login/login.component';
 import { FeedsComponent } from './feeds/feeds.component';
@@ -58,6 +59,7 @@ export const appname: string = 'wizdm';
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
+    MatInputModule,
     MatProgressBarModule,
     MatToolbarModule,
     MatDividerModule,

@@ -40,26 +40,6 @@
       <mat-hint class="mat-link" align="end" (click)="switchPage('forgotPassword')"  *ngIf="page == 'signIn'" @inflate>Forgot password?</mat-hint>
     </mat-form-field>
 
-    <!-- NEW EMAIL -->
-    <mat-form-field appearance="legacy" *ngIf="form.contains('newEmail')" @inflate>
-      <mat-label>New email</mat-label>
-      <input matInput formControlName="newEmail">
-      <mat-error *ngIf="form.controls.newEmail.errors?.required">
-        A new email is required
-      </mat-error>
-      <mat-error *ngIf="form.controls.newEmail.errors?.email">
-        This email looks wrong
-      </mat-error>
-    </mat-form-field>
-
-    <!-- NEW PASSWORD -->
-    <mat-form-field appearance="legacy" *ngIf="form.contains('newPassword')" @inflate>
-      <mat-label>New  password</mat-label>
-      <input matInput formControlName="newPassword">
-      <mat-error *ngIf="form.controls.newPassword.errors?.required">
-        A new password is required
-      </mat-error>
-    </mat-form-field>
 
     <button mat-stroked-button color="primary" type="submit" [disabled]="!form.valid" class="btn">
       {{ msgs[page].caption }}
