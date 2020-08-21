@@ -23,6 +23,10 @@ import {MatButtonModule} from '@angular/material/button'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list'; 
+import {MatSidenavModule} from '@angular/material/sidenav'; 
+
 import { IconModule } from '@wizdm/elements/icon';
 import { LoginComponent } from './login/login.component';
 import { FeedsComponent } from './feeds/feeds.component';
@@ -55,7 +59,11 @@ export const appname: string = 'wizdm';
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatDividerModule,
+    MatListModule,
+    MatSidenavModule,
+
     AnimateModule,
     ElementsModule,
     EmojiSupportModule,
