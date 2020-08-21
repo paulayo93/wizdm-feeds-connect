@@ -11,6 +11,7 @@ import {EmojiSupportModule} from '@wizdm/emoji';
 import { AuthModule } from '@wizdm/connect/auth';
 import { ConnectModule, ConnectConfig } from '@wizdm/connect';
 import { DatabaseModule } from '@wizdm/connect/database';
+import { ContentModule, ContentLoader, DefaultLoader } from './content';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import {MatToolbarModule} from '@angular/material/toolbar';
 import { IconModule } from '@wizdm/elements/icon';
 import { LoginComponent } from './login/login.component';
 import { FeedsComponent } from './feeds/feeds.component';
@@ -54,13 +55,14 @@ export const appname: string = 'wizdm';
     MatButtonModule,
     MatFormFieldModule,
     MatProgressBarModule,
-
+    MatToolbarModule
     AnimateModule,
     ElementsModule,
     EmojiSupportModule,
     IconModule,
 
     ReadmeModule,
+     ContentModule.init({ selector: 'lang', supportedValues: ['en', 'it', 'ru'] }),
 
     ConnectModule.init(firebase, appname),
     AuthModule, DatabaseModule,

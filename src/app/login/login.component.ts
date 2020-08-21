@@ -14,18 +14,18 @@ type pageTypes =
   | "changeEmail"
   | "delete";
 
-let $msgs = {
-  register: {
-    // Register new user page
-    title: "Register",
-    caption: "Register with my email"
-  },
-  signIn: {
-    // Regular sign-in page
-    title: "Sign-in",
-    caption: "Sign-in with my email"
-  }
-};
+// let $msgs = {
+//   register: {
+//     // Register new user page
+//     title: "Register",
+//     caption: "Register with my email"
+//   },
+//   signIn: {
+//     // Regular sign-in page
+//     title: "Sign-in",
+//     caption: "Sign-in with my email"
+//   }
+// };
 
 @Component({
   selector: "app-login",
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
   private email: FormControl;
   private password: FormControl;
 
-  readonly msgs = $msgs;
+  // readonly msgs = $msgs;
   public page: pageTypes;
   private code: string;
 

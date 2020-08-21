@@ -1,1 +1,105 @@
-<app-login></app-login>
+<mat-toolbar fxFlex="0 0 auto" fxLayout="row" fxLayoutAlign="space-between center">
+
+  <ng-container *ngIf="authenticated">
+
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <div fxLayout="column" fxLayoutAlign="end end">
+      
+      <div>Welcome {{ user.displayName }}</div>
+      <div class="mat-small">{{ user.email }}&nbsp;
+        <span [ngStyle]="{'color': user.emailVerified ? 'green' : 'red'}">
+          {{ user.emailVerified ? 'verified' : 'not verified' }}
+        </span>
+      </div>
+    </div>
+
+  </ng-container>
+
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+<mat-sidenav-container fxFlex="1 1 auto" fxLayout="column">
+
+  <mat-sidenav mode="over" #snav>
+
+    <mat-nav-list fxLayout="column" fxLayoutAlign="center center">
+      <mat-list-item *ngFor="let item of menuItems">
+        <a routerLinkActive="link-active" [routerLink]="item.page" [queryParams]="{ mode: item.mode }">
+          {{ item.caption }}
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  
+  </mat-sidenav>  
+    
+  <mat-sidenav-content fxFlex="1 1 auto" fxLayout="column">
+    
+    <div fxFlex="1 1 auto">
+      <router-outlet></router-outlet>
+    </div>
+
+    <!--mat-divider></mat-divider>
+
+    <mat-list>
+      <mat-list-item *ngFor="let message of messages.reverse()">{{message}}</mat-list-item>
+    </mat-list-->
+    
+    <mat-divider></mat-divider>
+
+    <footer fxFlex="0 0 auto"  fxLayout="row" fxLayoutAlign="center center">
+      
+      <a mat-icon-button *ngFor="let item of footerItems" [href]="item.link" target="_blank">
+        <mat-icon [fontSet]="item.icon.split(':')[0]" [fontIcon]="item.icon.split(':')[1]">
+        </mat-icon>
+      </a>
+    
+    </footer>
+  
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<!--div fxLayout="row" fxLayoutAlign="center start" fxLayoutGap="50px">
+  
+  <router-outlet></router-outlet>
+
+  <div *ngIf="authenticated">
+  
+    <h1>Welcome {{user?.displayName}}</h1>
+    <p>Authenticated with {{user?.email}}</p>
+    <p class="mat-small">Email 
+      <span [ngStyle]="{'color': user?.emailVerified ? 'green' : 'red'}">
+        {{user?.emailVerified ? 'verified' : 'not verified'}}
+      </span>
+    </p>
+
+    <mat-nav-list>
+
+      <mat-list-item *ngFor="let item of menu">
+        <a [routerLink]="item.page" [queryParams]="{ mode: item.mode }">
+          {{item.caption}}
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+
+  </div>
+
+  <div *ngIf="!authenticated">
+
+    <h1>Welcome to the auth sample</h1>
+    <p class="mat-small">by wizdm</p>
+
+  </div>
+
+</div>
+
+<mat-divider></mat-divider>
+
+<mat-list>
+  <mat-list-item *ngFor="let message of messages.reverse()">
+    {{message}}
+  </mat-list-item>
+</mat-list-->
