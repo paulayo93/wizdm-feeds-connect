@@ -95,9 +95,9 @@ export class LoginComponent implements OnInit, UserExtension {
         this.signOut();
         break;
 
-        case 'verifyEmail':
-        this.verifyEmail( this.code );
-        break;
+        // case 'verifyEmail':
+        // this.verifyEmail( this.code );
+        // break;
 
         default:
         this.switchPage(mode as pageTypes);
@@ -189,28 +189,6 @@ export class LoginComponent implements OnInit, UserExtension {
       this.registerNew( this.email.value, 
                         this.password.value, 
                         this.name.value );
-      break;
-
-      case 'forgotPassword':
-      this.forgotPassword( this.email.value );
-      break;
-
-      case 'resetPassword':
-      this.resetPassword(this.code, this.newPassword.value );
-      break;
-
-      case 'changePassword':
-      this.updatePassword( this.password.value,
-                           this.newPassword.value );
-      break;
-
-      case 'changeEmail':
-      this.updateEmail( this.password.value,
-                        this.newEmail.value );
-      break;
-
-      case 'delete':
-      this.deleteAccount( this.password.value );
       break;
     }
   }
