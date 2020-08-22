@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
+import { FeedsComponent } from './feeds/feeds.component';
 
 // import { DatabaseComponent } from './database/database.component';
 // import { NotFoundComponent } from './not-found/not-found.component';
