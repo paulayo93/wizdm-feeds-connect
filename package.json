@@ -22,7 +22,7 @@
     "@wizdm/emoji": "^1.1.8",
     "core-js": "2",
     "core.js": "^0.4.2",
-    "faker": "4.1.0",
+    "faker": "^4.1.0",
     "firebase": "7.17.1",
     "normalize.css": "8.0.1",
     "rxjs": "6.6.2",
