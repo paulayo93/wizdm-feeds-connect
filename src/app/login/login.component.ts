@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { $loginAnimations } from "./login-animations";
 import { $authProviders } from "./providers";
-import { AuthService, User, UserExtension } from "@wizdm/connect/auth";
+import { AuthService, User } from "@wizdm/connect/auth";
 
 type pageTypes = 'register' | 'signIn' | 'forgotPassword' | 'resetPassword' | 'changePassword' | 'changeEmail' | 'delete';
 
