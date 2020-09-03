@@ -60,6 +60,7 @@ export class LoginComponent implements OnInit{
   private providers = $authProviders;
   private hide = true;
   public error = null;
+   public errorCode = null;
   public progress = false;
   
   constructor(private auth: AuthService,
@@ -131,12 +132,12 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  private showError(error: string) {
+  // private showError(error: string) {
 
-    this.error = error;
-    this.progress = false;
-    setTimeout(() => this.error = null, 5000);
-  }
+  //   this.error = error;
+  //   this.progress = false;
+  //   setTimeout(() => this.error = null, 5000);
+  // }
 
   private reportSuccess(message: string, jumpTo?: string) {
     
@@ -173,18 +174,42 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  private signInWith(provider: string) { 
-
-    this.progress = true;;
-
+    public signInWith(provider: string) { 
     // Signing-in with a provider    
     this.auth.signInWith( provider )
-      .then( () => this.reportSuccess('Signed in using ' + provider) )
-      .catch( error => {
-        // Keep the rror code on failure
-        this.showError(error.code);
+      .then( user => { 
+        // Tracks the activity with analytics
+        // this.gtag.login(user?.providerId);
+        // Creates the new user user if needed, keeps the existing one otherwise 
+        this.user.register(user)
+          // Closes the dialog returning the user
+          .then( () => this.reportSuccess('Signed in using ' + provider) );
       })
+      // Dispays the error code, eventually
+      .catch( error => this.showError(error.code) );
   }
+
+  private showError(error: string) {
+    // Stops the progress, if any
+    this.progress = false;
+    // Sets the error code to be displayed
+    this.errorCode = error;
+    // Makes sure to turn off the error message after 10s
+    setTimeout(() => this.errorCode = null, 10000);
+  }
+
+  // private signInWith(provider: string) { 
+
+  //   this.progress = true;
+
+  //   // Signing-in with a provider    
+  //   this.auth.signInWith( provider )
+  //     .then( () => this.reportSuccess('Signed in using ' + provider) )
+  //     .catch( error => {
+  //       // Keep the rror code on failure
+  //       this.showError(error.code);
+  //     })
+  // }
 
   private signIn(email: string, password: string) {
     
