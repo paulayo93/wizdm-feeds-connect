@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit{
   public progress = false;
   
   constructor(private auth: AuthService,
-              private user: UserProfile,
+              // private user: UserProfile,
               private route : ActivatedRoute,
               private router: Router) {
 
