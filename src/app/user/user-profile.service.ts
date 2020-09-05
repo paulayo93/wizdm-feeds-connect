@@ -5,7 +5,7 @@ import { DocumentData } from '@wizdm/connect/database/document';
 import { DatabaseService } from '@wizdm/connect/database';
 import { AuthService, User } from '@wizdm/connect/auth';
 import { Injectable, OnDestroy } from '@angular/core';
-import { tapOnce } from '@wizdm/rxjs';
+import { tapOnce } from '../wizdm/tap-once';
 
 export interface UserData extends DocumentData {
 
@@ -53,9 +53,9 @@ export class UserProfile<T extends UserData = UserData> extends DatabaseCollecti
     super(db, 'users');
 
     // Streams the document with the authenticated user profile
-    this.data$ = this.auth.user$.pipe( switchMap((user) => {
-      this.fromUserId(user?.uid);
-    },
+    this.data$ = this.auth.user$.pipe( 
+    
+      switchMap((user) => {this.fromUserId(user?.uid);}
     ));
 
     // Persists the user profile snapshot making sure the document reference is always up to date
