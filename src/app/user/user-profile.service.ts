@@ -54,7 +54,7 @@ export class UserProfile<T extends UserData = UserData> extends DatabaseCollecti
 
     // Streams the document with the authenticated user profile
    this.data$ = this.auth.user$.pipe( 
-     switchMap(user => this.fromUserId(user?.uid))
+     switchMap(user => this.fromUserId(user.uid))
      );
 
     // Persists the user profile snapshot making sure the document reference is always up to date
@@ -183,7 +183,6 @@ export class UserProfile<T extends UserData = UserData> extends DatabaseCollecti
           out.push(sub);
         }
       }
-
       return out;
       
     }, []) || [""];
