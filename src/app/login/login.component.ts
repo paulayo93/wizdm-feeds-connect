@@ -245,8 +245,6 @@ export class LoginComponent implements OnInit{
   }
 
 
-
-
   public onUserDelete(user: User): Promise<boolean> {
     console.log('Wiping user: ', user.uid);
     return Promise.resolve(true);
