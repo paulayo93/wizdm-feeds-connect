@@ -25,6 +25,7 @@
     "firebase": "^7.19.1",
     "normalize.css": "^8.0.1",
     "rxjs": "6.6.2",
+    "rxjs-compat": "6.2.2",
     "tslib": "^2.0.1",
     "typescript": "4.0.2",
     "zone.js": "^0.11.1"
