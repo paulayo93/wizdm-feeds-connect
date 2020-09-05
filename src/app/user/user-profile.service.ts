@@ -53,10 +53,7 @@ export class UserProfile<T extends UserData = UserData> extends DatabaseCollecti
     super(db, 'users');
 
     // Streams the document with the authenticated user profile
-    this.data$ = this.auth.user$.pipe( 
-    
-      switchMap((user) => {this.fromUserId(user?.uid);}
-    ));
+   this.data$ = this.auth.user$.pipe( switchMap(user => this.fromUserId(user?.uid)));
 
     // Persists the user profile snapshot making sure the document reference is always up to date
     this.sub = this.data$.subscribe( profile => this.snapshot = profile || {} as T);
