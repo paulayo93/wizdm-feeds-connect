@@ -20,7 +20,7 @@
     "@wizdm/connect": "^1.0.1",
     "@wizdm/elements": "^1.0.1",
     "@wizdm/emoji": "^1.1.8",
-    "core-js": "^3.6.5",
+    "core-js": "2.6.9",
     "faker": "^5.1.0",
     "firebase": "^7.19.1",
     "normalize.css": "^8.0.1",
