@@ -1,6 +1,6 @@
 import { Observable, Subscription, of, from, defer, empty } from 'rxjs';
 import { DatabaseCollection } from '@wizdm/connect/database/collection';
-import { tap, map, shareReplay, expand, switchMap } from 'rxjs/operators';
+import { tap, map, shareReplay, expand, switchMap, take } from 'rxjs/operators';
 import { DocumentData } from '@wizdm/connect/database/document';
 import { DatabaseService } from '@wizdm/connect/database';
 import { AuthService, User } from '@wizdm/connect/auth';
@@ -53,7 +53,9 @@ export class UserProfile<T extends UserData = UserData> extends DatabaseCollecti
     super(db, 'users');
 
     // Streams the document with the authenticated user profile
-   this.data$ = this.auth.user$.pipe( switchMap(user => this.fromUserId(user?.uid)),);
+   this.data$ = this.auth.user$.pipe( 
+     switchMap(user => this.fromUserId(user?.uid))
+     );
 
     // Persists the user profile snapshot making sure the document reference is always up to date
     this.sub = this.data$.subscribe( profile => this.snapshot = profile || {} as T);
