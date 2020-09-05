@@ -17,6 +17,7 @@
     "@firebase/util": "^0.3.1",
     "@types/faker": "^4.1.12",
     "@wizdm/animate": "^2.0.1",
+    "@wizdm/connect": "^1.0.1",
     "@wizdm/elements": "^1.0.1",
     "@wizdm/emoji": "^1.1.8",
     "core-js": "2.6.9",
