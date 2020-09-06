@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, ParamMap } from "@angular/router";
 import { $loginAnimations } from "./login-animations";
 import { $authProviders } from "./providers";
 import { AuthService, User } from "@wizdm/connect/auth";
-import {UserProfile} from '../user/user-profile.service';
+// import {UserProfile} from '../user/user-profile.service';
 
 type pageTypes = 'register' | 'signIn' | 'forgotPassword' | 'resetPassword' | 'changePassword' | 'changeEmail' | 'delete';
 
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit{
   public progress = false;
   
   constructor(private auth: AuthService,
-              private user: UserProfile,
+             /* private user: UserProfile,*/
               private route : ActivatedRoute,
               private router: Router) {
 
